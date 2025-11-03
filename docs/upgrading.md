@@ -205,6 +205,29 @@ $wire.$js.bookmark = () => {
 
 The new syntax is cleaner and more intuitive.
 
+#### Deprecated: `$js` without prefix
+
+The use of `$js` in scripts without `$wire.$js` or `this.$js` prefix has been deprecated:
+
+```js
+// Deprecated (v3)
+$js('bookmark', () => {
+    // Toggle bookmark...
+})
+
+// New (v4)
+$wire.$js.bookmark = () => {
+    // Toggle bookmark...
+}
+// Or
+this.$js.bookmark = () => {
+    // Toggle bookmark...
+}
+```
+
+> [!tip] Old syntax still works
+> Both `$wire.$js('bookmark', ...)` and `$js('bookmark', ...)` will continue to work in v4 for backward compatibility, but you should migrate to the new syntax when convenient.
+
 #### Deprecated: `commit` and `request` hooks
 
 The `commit` and `request` hooks have been deprecated in favor of a new interceptor system that provides more granular control and better performance.
@@ -527,8 +550,8 @@ Every element that triggers a network request automatically receives a `data-loa
 Access your component's error bag from JavaScript:
 
 ```blade
-<div x-show="$wire.$errors.has('email')">
-    <span x-text="$wire.$errors.first('email')"></span>
+<div wire:show="$errors.has('email')">
+    <span wire:text="$errors.first('email')"></span>
 </div>
 ```
 
@@ -540,7 +563,7 @@ Intercept and modify Livewire requests from JavaScript:
 
 ```blade
 <script>
-$wire.$intercept('save', ({ proceed }) => {
+this.$intercept('save', ({ proceed }) => {
     if (confirm('Save changes?')) {
         proceed()
     }
@@ -555,7 +578,7 @@ $wire.$intercept('save', ({ proceed }) => {
 Trigger island renders directly from the template:
 
 ```blade
-<button wire:click="$island('stats', { mode: 'prepend' })">
+<button wire:click="$refresh" wire:island.prepend="stats">
     Update Stats
 </button>
 ```
