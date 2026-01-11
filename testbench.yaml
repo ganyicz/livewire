@@ -1,0 +1,21 @@
+laravel: '@testbench'
+
+providers:
+  - Livewire\LivewireServiceProvider
+
+workbench:
+  start: '/'
+  install: true
+  health: false
+  discovers:
+    web: true
+    api: true
+    commands: true
+    components: false
+    factories: true
+    views: true
+    config: true
+  sync:
+    - from: storage
+      to: workbench/storage
+      reverse: true

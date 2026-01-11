@@ -54,5 +54,11 @@
     }
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "scripts": {
+    "serve": [
+        "Composer\\Config::disableProcessTimeout",
+        "@php vendor/bin/testbench workbench:build --ansi",
+        "@php vendor/bin/testbench serve --port 3000 --ansi"
+    ]
+  }
 }
