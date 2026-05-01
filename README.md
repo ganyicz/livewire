@@ -27,7 +27,7 @@ git clone git@github.com:livewire/livewire.git && cd livewire
 composer setup
 ```
 
-This installs PHP and JS dependencies and sets up ChromeDriver for browser tests.
+This installs PHP and JavaScript dependencies and sets up ChromeDriver for browser tests.
 
 ```bash
 composer test:unit                                   # unit tests
