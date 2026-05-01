@@ -41,6 +41,7 @@
     ],
     "componentMethods": [
       { "label": "dispatch", "description": "Dispatches a Livewire event that other components can listen for.", "parameters": "$event, ...$params" },
+      { "label": "announce", "description": "Alias for `dispatch()`. Dispatches a Livewire event that other components can listen for.", "parameters": "$event, ...$params" },
       { "label": "validate", "description": "Validates the component and returns the validated payload.", "parameters": "$rules = null, $messages = [], $attributes = []" },
       { "label": "validateOnly", "description": "Validates a single property against the component's validation rules.", "parameters": "$field, $rules = null, $messages = [], $attributes = [], $dataOverrides = []" },
       { "label": "withValidator", "description": "Registers a callback to customize the validator before validation runs.", "parameters": "$callback" },
