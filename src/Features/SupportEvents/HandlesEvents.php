@@ -25,4 +25,9 @@ trait HandlesEvents
     {
         return $this->dispatch($event, ...$params);
     }
+
+    public function announce($event, ...$params)
+    {
+        return $this->dispatch($event, ...$params);
+    }
 }
