@@ -20,4 +20,9 @@ trait HandlesEvents
 
         return $event;
     }
+
+    public function emit($event, ...$params)
+    {
+        return $this->dispatch($event, ...$params);
+    }
 }
